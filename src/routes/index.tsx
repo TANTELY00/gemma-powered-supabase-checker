@@ -104,11 +104,17 @@ function Index() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <header className="border-b border-border px-8 py-6">
-        <h1 className="font-display text-4xl font-bold tracking-tight">Test RAG <span className="text-primary">CashOffice</span></h1>
-        <p className="mt-1 text-sm text-muted-foreground">Agent de recherche · Gemma · réponses sourcées</p>
+      <header className="px-4 pt-5 sm:px-8">
+        <div className="mx-auto max-w-6xl px-5 py-5 sm:px-8 sm:py-6">
+          <h1 className="font-display text-3xl font-bold leading-tight tracking-tight sm:text-4xl">
+            Test RAG <span className="text-primary">CashOffice</span>
+          </h1>
+          <p className="mt-2 text-sm text-muted-foreground">
+            Agent de recherche · Gemma · réponses sourcées
+          </p>
+        </div>
       </header>
-      <main className="mx-auto grid max-w-6xl gap-8 p-8 lg:grid-cols-[360px_1fr]">
+      <main className="mx-auto grid max-w-6xl gap-8 p-4 sm:p-8 lg:grid-cols-[360px_1fr]">
         <aside className="space-y-6">
           <section className="rounded-lg border border-border bg-card p-5">
             <h2 className="font-display text-xl font-semibold">Ajouter un document</h2>
