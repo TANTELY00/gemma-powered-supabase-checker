@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
+import { MarkdownResponse } from "@/components/markdown-response";
 import { askAgent, ingestDocument, listSources } from "@/lib/rag.functions";
 
 export const Route = createFileRoute("/")({
@@ -148,7 +149,11 @@ function Index() {
             {msgs.length === 0 && <p className="mt-20 text-center font-display text-2xl text-muted-foreground">Posez une question sur vos documents.</p>}
             {msgs.map((m, i) => (
               <div key={i} className={m.role === "user" ? "ml-auto max-w-[80%] rounded-lg bg-primary px-4 py-3 text-primary-foreground" : "max-w-[90%]"}>
-                <p className="whitespace-pre-wrap text-sm leading-relaxed">{m.content}</p>
+                {m.role === "assistant" ? (
+                  <MarkdownResponse content={m.content} />
+                ) : (
+                  <p className="whitespace-pre-wrap text-sm leading-relaxed">{m.content}</p>
+                )}
                 {m.steps && m.steps.length > 0 && (
                   <p className="mt-2 font-mono text-xs text-muted-foreground">🔎 {m.steps.map((s) => `« ${s} »`).join(" · ")}</p>
                 )}
